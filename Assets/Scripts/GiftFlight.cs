@@ -20,6 +20,11 @@ public class GiftFlight : MonoBehaviour
     public float baseMaxHeight = 4f;
     public float flightDurationScaler = 0.1f;
     public float baseFlightTime = 0.5f;
+    
+    
+    [Header("Boundary Settings")]
+    public float destroyDistance = 15f;
+    private Vector3 globeCenter = Vector3.zero;
 
     [Header("Collision Detection")]
     public float textureRectBuffer = 0.5f;
@@ -54,6 +59,13 @@ public class GiftFlight : MonoBehaviour
 
     public void InitializeFlight(float power, float vAngle, bool isBellActive)
     {
+        if (isBellActive)
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.bellLaunchSound);
+        } else
+        {
+        AudioManager.Instance.PlaySFXWithRandomPitch(AudioManager.Instance.launchSound);
+        }
         isBell = isBellActive;
         if (isBellActive)
         {
@@ -92,6 +104,15 @@ public class GiftFlight : MonoBehaviour
             spriteRenderer.transform.localPosition = new Vector3(0, h, 0);
         }
 
+        float distanceToCenter = Vector3.Distance(transform.position, globeCenter);
+        
+        if (progress >= 0.5 && distanceToCenter > destroyDistance)
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.vanishSound);
+            Destroy(gameObject);
+            return;
+        }
+
         if (progress >= 1.0f) Land();
     }
 
@@ -117,9 +138,11 @@ public class GiftFlight : MonoBehaviour
         int y = (int)((localPos.y / globeRenderer.sprite.bounds.size.y + textureRectBuffer) * rect.height + rect.y);
 
         Color hitColor = tex.GetPixel(x, y);
+        Debug.Log(x + ", " + y + " | " + tex.width + ", " + tex.height);
 
         if(hitColor.g > hitColor.r && hitColor.g > hitColor.b && hitColor.a > alphaThreshold)
         {
+            AudioManager.Instance.PlaySFXWithRandomPitch(AudioManager.Instance.landSound);
             GameObject l = Instantiate(impactLightPrefab, transform.position, Quaternion.identity);
             l.transform.SetParent(GameObject.Find("Globe").transform);
             GameManager.Instance.StartCoroutine(PauseAndBlinkLight(l));
@@ -137,6 +160,13 @@ public class GiftFlight : MonoBehaviour
         
             GameManager.Instance.AddProgress(score);
                 
+        }
+        else if(hitColor.a > 0.1f)
+        {
+            AudioManager.Instance.PlayRandomSfx(AudioManager.Instance.waterLandSounds);
+        } else
+        {
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.vanishSound);
         }
         Destroy(gameObject);
 

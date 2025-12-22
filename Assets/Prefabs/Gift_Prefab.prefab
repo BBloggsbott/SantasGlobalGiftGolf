@@ -154,6 +154,7 @@ MonoBehaviour:
   baseMaxHeight: 4
   flightDurationScaler: 0.1
   baseFlightTime: 0.5
+  destroyDistance: 4.5
   textureRectBuffer: 0.5
   alphaThreshold: 0.1
   progressIncrement: 5

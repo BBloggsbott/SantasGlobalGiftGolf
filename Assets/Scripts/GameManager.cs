@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.clickSound);
         startScreenPanel.SetActive(false);
         gameStarted = true;
         aimer.SetActive(true);
@@ -119,5 +120,6 @@ public class GameManager : MonoBehaviour
         gameFinished = true;
         winscreenPanel.SetActive(true);
         finalTimeText.text = string.Format("Time taken: {0}", GetFormattedFinalTime());
+        AudioManager.Instance.musicSource.Pause();
     }
 }
