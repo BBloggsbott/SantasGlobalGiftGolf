@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: adddc29e733928755b24bf3686bb0f30
+guid: aca703f255e5b838e96d8b50415389ea
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: SantaMini
+  - name: SantaMiniIcon
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 32
-    spriteID: 471a796f2a255dc30aad638a0a88fe35
+    spriteID: 1bff7be1dc1ac1728a9d343b68861c98
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,17 +153,17 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 223072056
+      value0: 840438301
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: SantaMini
+    name: SantaMiniIcon
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: SantaMini
+    - name: SantaMiniIcon
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -171,7 +171,7 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 32
-      spriteId: 471a796f2a255dc30aad638a0a88fe35
+      spriteId: 1bff7be1dc1ac1728a9d343b68861c98
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
