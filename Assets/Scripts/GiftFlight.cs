@@ -32,8 +32,6 @@ public class GiftFlight : MonoBehaviour
 
 
     [Header("Progress Control")]
-    public float progressIncrement = 5f;
-    public float bellBaseIncrement = 7f;
     public int longshotMultiplier = 2;
     public float longshotThreshold = 5f;
     
@@ -152,7 +150,7 @@ public class GiftFlight : MonoBehaviour
             );
 
             Debug.Log("Is Bell: " + isBell);
-            float score = isBell ? bellBaseIncrement : progressIncrement;
+            float score = isBell ? GameManager.Instance.bellBaseIncrement : GameManager.Instance.progressIncrement;
             Debug.Log("Hit Distance: " + playerDistance);
 
             if (playerDistance > longshotThreshold)

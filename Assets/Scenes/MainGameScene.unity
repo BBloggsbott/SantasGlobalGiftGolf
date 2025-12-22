@@ -1875,8 +1875,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The year was tough and the world has gone dark. Deliver gifts to light
-    up people's hearts
+  m_text: "The year was tough and the world has gone dark. \n\nDeliver gifts to light
+    up people's hearts"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3074,6 +3074,10 @@ MonoBehaviour:
   totalHeartsLit: 0
   timerText: {fileID: 2085968914}
   globeAnimator: {fileID: 1070665845}
+  progressIncrement: 5
+  bellBaseIncrement: 7
+  longshotMultiplier: 2
+  longshotThreshold: 5
   bellText: {fileID: 1040895812}
   percentageText: {fileID: 614171687}
   percentageSlider: {fileID: 1594695173}

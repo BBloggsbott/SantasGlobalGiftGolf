@@ -21,6 +21,12 @@ public class GameManager : MonoBehaviour
     [Header("Difficulty Settings")]
     public Animator globeAnimator;
 
+    [Header("Progress Control")]
+    public float progressIncrement = 5f;
+    public float bellBaseIncrement = 7f;
+    public int longshotMultiplier = 2;
+    public float longshotThreshold = 5f;
+
 
     public TextMeshProUGUI bellText;
     public TextMeshProUGUI percentageText;
@@ -131,18 +137,33 @@ public class GameManager : MonoBehaviour
     switch (index) {
         case 0:
             globeAnimator.speed = 0.25f; // Slow
+            bellcharges = 5;
+            progressIncrement = 7f;
+            bellBaseIncrement = 9f;
             break;
         case 1:
             globeAnimator.speed = 1.0f; // Default
+            bellcharges = 3;
+            progressIncrement = 5f;
+            bellBaseIncrement = 7f;
             break;
         case 2:
             globeAnimator.speed = 2.0f; // Fast
+            bellcharges = 2;
+            progressIncrement = 3f;
+            bellBaseIncrement = 5f;
             break;
         case 3:
             globeAnimator.speed = 5.0f; // Faster
+            bellcharges = 1;
+            progressIncrement = 2f;
+            bellBaseIncrement = 4f;
             break;
         case 4:
             globeAnimator.speed = 20.0f; // Fasterer
+            bellcharges = 0;
+            progressIncrement = 4f;
+            bellBaseIncrement = 10000f;
             break;
     }
     Debug.Log("Difficulty set to index: " + index);
