@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     private bool gameFinished = false;
     private bool gameStarted = false;
 
+    [Header("Difficulty Settings")]
+    public Animator globeAnimator;
+
 
     public TextMeshProUGUI bellText;
     public TextMeshProUGUI percentageText;
@@ -122,4 +125,26 @@ public class GameManager : MonoBehaviour
         finalTimeText.text = string.Format("Time taken: {0}", GetFormattedFinalTime());
         AudioManager.Instance.musicSource.Pause();
     }
+
+    public void SetDifficulty(int index) {
+    // index 0 = Easy, 1 = Normal, 2 = Hard
+    switch (index) {
+        case 0:
+            globeAnimator.speed = 0.25f; // Slow
+            break;
+        case 1:
+            globeAnimator.speed = 1.0f; // Default
+            break;
+        case 2:
+            globeAnimator.speed = 2.0f; // Fast
+            break;
+        case 3:
+            globeAnimator.speed = 5.0f; // Faster
+            break;
+        case 4:
+            globeAnimator.speed = 20.0f; // Fasterer
+            break;
+    }
+    Debug.Log("Difficulty set to index: " + index);
+}
 }
