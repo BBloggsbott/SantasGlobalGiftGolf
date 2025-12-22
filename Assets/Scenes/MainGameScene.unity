@@ -2810,6 +2810,7 @@ MonoBehaviour:
   bellLaunchSound: {fileID: 8300000, guid: bb79eb96d60c79923beba3da5de4cbd3, type: 3}
   landSound: {fileID: 8300000, guid: d43f9a189fb9fffc08e608f05cb77302, type: 3}
   vanishSound: {fileID: 8300000, guid: 250167840fdd48e8993af7a92ce27f54, type: 3}
+  gameWinSound: {fileID: 8300000, guid: c89162ebfad53ded2b21f1f61d544f5f, type: 3}
   waterLandSounds:
   - {fileID: 8300000, guid: 1ac9992fd191b92ed9543aa389542ece, type: 3}
   - {fileID: 8300000, guid: 130b0a2d98809c8e0a53468c1f764563, type: 3}

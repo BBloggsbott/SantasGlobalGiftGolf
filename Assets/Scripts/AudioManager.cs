@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip bellLaunchSound;
     public AudioClip landSound;
     public AudioClip vanishSound;
+    public AudioClip gameWinSound;
     public AudioClip[] waterLandSounds;
 
     void Awake()

@@ -130,6 +130,7 @@ public class GameManager : MonoBehaviour
         winscreenPanel.SetActive(true);
         finalTimeText.text = string.Format("Time taken: {0}", GetFormattedFinalTime());
         AudioManager.Instance.musicSource.Pause();
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.gameWinSound);
     }
 
     public void SetDifficulty(int index) {
