@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     public int longshotMultiplier = 2;
     public float longshotThreshold = 5f;
 
+    [Header("Gift Counter")]
+    public TextMeshProUGUI giftsFiredText;
+    private int giftsFiredCounter = 0;
+
 
     public TextMeshProUGUI bellText;
     public TextMeshProUGUI percentageText;
@@ -40,6 +44,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+
+    public void FireGift()
+    {
+        giftsFiredCounter ++;
+        UpdateUI();
     }
 
 
@@ -95,6 +106,7 @@ public class GameManager : MonoBehaviour
         bellText.text = "Bells: " + bellcharges;
         percentageText.text = totalHeartsLit.ToString("F0") + "%";
         percentageSlider.value = totalHeartsLit;
+        giftsFiredText.text = "Gifts Fired: " + giftsFiredCounter;
     }
 
     void UpdateTimerUI() {
@@ -128,7 +140,7 @@ public class GameManager : MonoBehaviour
         aimer.SetActive(false);
         gameFinished = true;
         winscreenPanel.SetActive(true);
-        finalTimeText.text = string.Format("Time taken: {0}", GetFormattedFinalTime());
+        finalTimeText.text = string.Format("Time taken: {0}\nGifts Fired: {1}", GetFormattedFinalTime(), giftsFiredCounter);
         AudioManager.Instance.musicSource.Pause();
         AudioManager.Instance.PlaySfx(AudioManager.Instance.gameWinSound);
     }

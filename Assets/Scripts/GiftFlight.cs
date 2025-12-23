@@ -52,6 +52,7 @@ public class GiftFlight : MonoBehaviour
             Debug.Log("Gift Sprite Renderer is empty. Getting component.");
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
+        GameManager.Instance.FireGift();
     }
 
 
