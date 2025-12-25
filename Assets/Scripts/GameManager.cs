@@ -180,5 +180,6 @@ public class GameManager : MonoBehaviour
             break;
     }
     Debug.Log("Difficulty set to index: " + index);
+    UpdateUI();
 }
 }
